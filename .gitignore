@@ -340,3 +340,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 *.exe
+.vs/SmartExporter/v16/.suo
