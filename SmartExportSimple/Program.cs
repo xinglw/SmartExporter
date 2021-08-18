@@ -36,11 +36,7 @@ namespace SmartExportSimple
                     Console.WriteLine(b);
                 }
             };
-            
-            var total = list.Sum(x=>x.TotalWeight);
-            var sum = list.Sum(x => x.DuoShu);
-            var sum1 = list.Sum(x => x.KuaiShu);
-            //exportUtil.ExportAsync(@"D:\test.xls", list,total,sum,sum1);
+            exportUtil.ExportAsync(@"D:\test.xls", list, "测试导出数据", "共计100条数据");
             Console.ReadLine();
         }
     }
