@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartExporter", "SmartExporter\SmartExporter.csproj", "{5288BFAE-4278-422C-A014-DC7B9FA6042A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartExportSimple", "SmartExportSimple\SmartExportSimple.csproj", "{C1AEDF98-6021-48BA-96AA-9878676512A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5288BFAE-4278-422C-A014-DC7B9FA6042A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5288BFAE-4278-422C-A014-DC7B9FA6042A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5288BFAE-4278-422C-A014-DC7B9FA6042A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5288BFAE-4278-422C-A014-DC7B9FA6042A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1AEDF98-6021-48BA-96AA-9878676512A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1AEDF98-6021-48BA-96AA-9878676512A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1AEDF98-6021-48BA-96AA-9878676512A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1AEDF98-6021-48BA-96AA-9878676512A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC0E2807-B33A-47BD-8AF0-170D3EB1551E}
+	EndGlobalSection
+EndGlobal
