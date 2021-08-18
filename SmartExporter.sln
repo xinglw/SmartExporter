@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartExporter", "SmartExporter\SmartExporter.csproj", "{5288BFAE-4278-422C-A014-DC7B9FA6042A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartExportExample", "SmartExportSimple\SmartExportExample.csproj", "{C1AEDF98-6021-48BA-96AA-9878676512A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartExportExample", "SmartExportExample\SmartExportExample.csproj", "{C1AEDF98-6021-48BA-96AA-9878676512A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
