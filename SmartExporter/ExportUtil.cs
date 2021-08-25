@@ -286,7 +286,7 @@ namespace SmartExporter
             }
             if (!string.IsNullOrEmpty(StatisticsString))
             {
-                var lastRow1 = (HSSFRow)sheet.CreateRow(list.Count + 1);
+                var lastRow1 = (HSSFRow)sheet.CreateRow(list.Count + 1 + RowIndexOffset);
                 var cell22 = lastRow1.CreateCell(0);
                 cell22.SetCellValue(list.Count);
                 CellRangeAddress region1 = new CellRangeAddress(list.Count + 1, list.Count + 1, 0, array.Length - 1);

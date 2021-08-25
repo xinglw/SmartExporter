@@ -51,15 +51,17 @@ namespace SmartExporter
         /// </summary>
         /// <param name="filePath">文件路径</param>
         /// <param name="T">需要转换成的Model的类型</param>
-        public void ImportFromExcelAsync(string filePath, Type T)
+        /// <param name="StartRowOffset">可能存在表格标题的情况，需要将标题跳过，如标题为前三行，此处应当传入3，注意跳过内容不能包含列名</param>
+        /// <param name="EndRowOffset">可能存在表格最后统计内容，需要跳过，如最后有3行为统计，此处应当传入3</param>
+        public void ImportFromExcelAsync(string filePath, Type T,int StartRowOffset = 0,int EndRowOffset = 0)
         {
-            bgBackgroundWorker.RunWorkerAsync(new object[] { filePath, T });
+            bgBackgroundWorker.RunWorkerAsync(new object[] { filePath, T,StartRowOffset,EndRowOffset });
         }
 
         private void BgBackgroundWorkerOnDoWork(object sender, DoWorkEventArgs e)
         {
             //判断参数是否正确
-            if (!(e.Argument is object[] args) || args.Length != 2)
+            if (!(e.Argument is object[] args) || args.Length != 4)
             {
                 throw new Exception("传入参数出错。");
             }
@@ -69,6 +71,16 @@ namespace SmartExporter
             {
                 throw new Exception("传入参数存在空值。");
             }
+
+            if (int.TryParse(args[2].ToString(),out var StartRowOffset))
+            {
+                throw new Exception("StartRowOffset传入内容出错。");
+            }
+            if (int.TryParse(args[2].ToString(), out var EndRowOffset))
+            {
+                throw new Exception("EndRowOffset传入内容出错。");
+            }
+            //var EndRowOffset = int.Parse(args[3].ToString());
             //保存当前类的属性与特性对应，<属性名，特性名>
             const string match = "^(\\d{2}|\\d{4})[/|-]([0][1-9]|(1[0-2]))[/|-]([1-9]|([012]\\d)|(3[01]))([ \\t\\n\\x0B\\f\\r])*(([0-1]{1}[0-9]{1})|([2]{1}[0-4]{1}))([:])(([0-5]{1}[0-9]{1}|[6]{1}[0]{1}))((([:])((([0-5]{1}[0-9]{1}|[6]{1}[0]{1}))))|())$";
             var propDic = new Dictionary<string, string>();
@@ -91,7 +103,7 @@ namespace SmartExporter
             try
             {
                 var Workbook = new HSSFWorkbook(File.OpenRead(filePath));
-                var sheetAt = Workbook.GetSheetAt(0);
+                var sheetAt = Workbook.GetSheetAt(0 + StartRowOffset);
                 var columns = new List<string>();
                 var row0 = sheetAt.GetRow(0);
                 bgBackgroundWorker.ReportProgress(1, "正在获取文件");
@@ -102,7 +114,7 @@ namespace SmartExporter
                         columns.Add(propName);
                     }
                 }
-                for (var i = 1; i <= sheetAt.LastRowNum; i++)
+                for (var i = 1; i <= sheetAt.LastRowNum - EndRowOffset; i++)
                 {
                     var t = Activator.CreateInstance(T);
                     var row = sheetAt.GetRow(i);
